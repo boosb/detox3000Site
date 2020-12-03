@@ -1,4 +1,23 @@
+var mySwiper = new Swiper('.swiper-container', {
+    loop: true,
+    speed: 600,
+    autoplay: {
+        delay: 3500,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    }
+});
+
 $(function () {
+    $('.page-ten__video-slider').slick({
+        arrows: false,
+        dots: true
+    });
+});
+
+/*$(function () {
     $('.slider').slick({
         arrows: false,
         fade: true,
@@ -11,7 +30,7 @@ $(function () {
         arrows: false,
         dots: true
     });
-});
+});*/
 
 $('.page-six__img-1').magnificPopup({
     delegate: 'a',
@@ -62,13 +81,59 @@ const shot1 = document.querySelector('.page-two__shot-1'),
     val = document.querySelector('.page-twelve__inner-numeral'),
     finalSum = document.querySelector('.page-twelve__inner-number'),
     mainBox = document.querySelector('.page-two__main-box'),
-    mainLink = document.querySelector('.main-link');
+    //mainLink = document.querySelector('.main-link'),
+    textPhone = document.getElementById('phone'),
+    textPhoneTwo = document.getElementById('phone-two'),
+
+    liteboxBtn = document.querySelector('.litebox__btn'),
+    litebox = document.querySelector('.litebox'),
+    liteboxClose = document.querySelector('.litebox__close-btn'),
+    twelveBtn = document.querySelector('.page-twelve__btn'),
+    radioDot = document.querySelectorAll('.litebox__radio-dot'),
+    radioInput = document.querySelectorAll('.litebox__check');
+
+let link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=2000&SignatureValue=12874da6c06d9da32097f47425c45539';
+
+for (let i = 0; i < radioInput.length; i++) {
+    radioInput[i].onclick = function () {
+        for (let j=0; j < radioDot.length; j++) {
+            radioDot[j].classList.remove('litebox__radio-dot--active');
+        }
+        radioDot[i].classList.toggle('litebox__radio-dot--active');
+    }
+}
+
+twelveBtn.onclick = function() {
+    litebox.classList.add('litebox--active');
+}
+
+liteboxClose.onclick = function() {
+    litebox.classList.remove('litebox--active');
+}
+/*
+document.querySelector(".test-test").addEventListener('click', function(){
+    Swal.fire("Our First Alert", "With some body text and success icon!", "success");
+  });*/
+
+textPhone.oninput = function () {
+    let lastItem = textPhone.value[textPhone.value.length - 1];
+    if (isNaN(lastItem)) {
+        textPhone.value = textPhone.value.replace(lastItem, '');
+    }
+}
+
+textPhoneTwo.oninput = function () {
+    let lastItem = textPhoneTwo.value[textPhoneTwo.value.length - 1];
+    if (isNaN(lastItem)) {
+        textPhoneTwo.value = textPhoneTwo.value.replace(lastItem, '');
+    }
+}
 
 window.addEventListener('scroll', function () {
     function addedActive() {
         mainBox.classList.add("active");
     }
-    //console.log(pageYOffset)
+
     if (pageYOffset >= 250) {
         shot1.classList.add("active");
         shot2.classList.add("active");
@@ -92,59 +157,91 @@ contin.onclick = function () {
 
 function getHesh() {
     let num = val.value;
-    //console.log(num);
-    //console.log(mainLink.removeAttribute('href'))
 
     switch (num) {
         case '1':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=2000&SignatureValue=12874da6c06d9da32097f47425c45539');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=2000&SignatureValue=12874da6c06d9da32097f47425c45539';
             break;
         case '2':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=4000&SignatureValue=23d09f017679671367428424ba603eca');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=3900&SignatureValue=23d09f017679671367428424ba603eca';
             break;
         case '3':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=6000&SignatureValue=3eab6d125c2062bb093657eda02c1be3');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=5700&SignatureValue=3eab6d125c2062bb093657eda02c1be3';
             break;
         case '4':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=8000&SignatureValue=39d916a4e9de32197dfb6c2dc01c9a70');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=7500&SignatureValue=39d916a4e9de32197dfb6c2dc01c9a70';
             break;
         case '5':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=10000&SignatureValue=69db81d7f0e886bf95dc38d1b1f1d5d6');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=9300&SignatureValue=69db81d7f0e886bf95dc38d1b1f1d5d6';
             break;
         case '6':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=12000&SignatureValue=5f8fcb89c8692419ad79739b6d2d8aa6');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=11100&SignatureValue=5f8fcb89c8692419ad79739b6d2d8aa6';
             break;
         case '7':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=14000&SignatureValue=f039078eb450e67a388cdcaf705125fb');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=12900&SignatureValue=f039078eb450e67a388cdcaf705125fb';
             break;
         case '8':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=16000&SignatureValue=bbe9932f15ddcc98df52389ed9fced58');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=14700&SignatureValue=bbe9932f15ddcc98df52389ed9fced58';
             break;
         case '9':
-            mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=18000&SignatureValue=f5f21d576e5962803c552f77d129aeaf');
+            link = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=16500&SignatureValue=f5f21d576e5962803c552f77d129aeaf';
+            //mainLink.setAttribute('href', 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=russkashi&InvId=0&Culture=ru&Encoding=utf-8&OutSum=16500&SignatureValue=f5f21d576e5962803c552f77d129aeaf');
             break;
     }
 }
 
+let count = 0;
 minus.onclick = function () {
     if (val.value > 1) {
-        val.value = Number(val.value) - 1;
-        finalSum.value = Number(finalSum.value) - 2000;
-        getHesh();
+        if (count === 1) {
+            val.value = Number(val.value) - 1;
+            finalSum.value = Number(finalSum.value) - 1900;
+            getHesh();
+        } else {
+            val.value = Number(val.value) - 1;
+            finalSum.value = Number(finalSum.value) - 1800;
+            getHesh();
+        }
+        count--;
     }
 }
 
 plus.onclick = function () {
     if (val.value < 9) {
-        val.value = Number(val.value) + 1;
-        finalSum.value = Number(finalSum.value) + 2000;
-        getHesh();
+        if (count === 0) {
+            val.value = Number(val.value) + 1;
+            finalSum.value = Number(finalSum.value) + 1900;
+            getHesh();
+        } else {
+            val.value = Number(val.value) + 1;
+            finalSum.value = Number(finalSum.value) + 1800;
+            getHesh();
+        }
+        count++;
     }
 }
 
 $(document).ready(function () {
-
     //E-mail Ajax Send
+    $(".litebox__form").submit(function () { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "mail.php", //Change
+            data: th.serialize()
+        }).done(function () {
+            Swal.fire("Благодарим за заказ!", "В ближайшее время мы Вам позвоним для уточнения деталей доставки.", "success");
+            setTimeout(function(){
+                window.location.href = link;
+              }, 3000);
+            setTimeout(function () {
+                // Done Functions
+                th.trigger("reset");
+            }, 1000);
+        });
+        return false;
+    });
+
     $(".page-eleven__form").submit(function () { //Change
         var th = $(this);
         $.ajax({
@@ -152,9 +249,8 @@ $(document).ready(function () {
             url: "mail.php", //Change
             data: th.serialize()
         }).done(function () {
-            alert("Спасибо! Ваша заявка отправлена!");
+            Swal.fire("Здравствуйте!", "В ближайшее время мы Вам позвоним для уточнения деталей.", "success");
             setTimeout(function () {
-                // Done Functions
                 th.trigger("reset");
             }, 400);
         });

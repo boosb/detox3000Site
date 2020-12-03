@@ -1,11 +1,11 @@
 @media screen and (orientation: portrait) { 
-    .slider .slider__item.item-1 { 
+    .swiper-container .swiper-slide.item-1 { 
         background-image: url('../images/main-1-portrait.png'); 
     }
-    .slider .slider__item.item-2 { 
+    .swiper-container .swiper-slide.item-2 { 
         background-image: url('../images/main-2-portrait.png'); 
     }
-    .slider .slider__item.item-3 { 
+    .swiper-container .swiper-slide.item-3 { 
         background-image: url('../images/main-3-portrait.png'); 
     }
 }
@@ -410,7 +410,18 @@
     }
     .page-twelve__link {
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+    }
+    .page-twelve__attention{
+        margin-bottom: 25px;
+    }
+    .page-twelve__attention-title{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .page-twelve__attention-text{
+        font-size: 14px;
+        line-height: 16px;
     }
 }
 
@@ -603,6 +614,9 @@
         top: 85px;
         left: 10%;
     }
+    .page-five{
+        padding-bottom: 50px;
+    }
     .page-five__title{
         display: none;
     }
@@ -620,10 +634,9 @@
         margin-bottom: 160px;
     }
     .page-five__text{
-        //max-width: 480px;
         margin-top: 0;
         margin-left: 0;
-        top: 29%;
+        top: 29.5%;
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%)
@@ -650,11 +663,7 @@
     .title__sub.page-eight__title-box__sub{
         margin-left: 0;
         padding-left: 0;
-    }/*
-    .page-seven__text{
-        font-size: 15px;
-        line-height: 18px;
-    }*/
+    }
     .page-eight__motiv{
         margin-left: -55px;
     }
@@ -725,9 +734,27 @@
 
 @media (max-width:750px) {
     .main-btn.button{
-        padding: 10px 15px 7px 15px;
+        padding: 15px 23px 15px;
         font-size: 14px;
         line-height: 20px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev{
+        width: 23px;
+        height: 40px;
+        background-image: url('../images/arrow-swiper-phone.svg');
+        &::after{
+            content: url('../images/arrow-swiper-phone.svg');
+            width: 23px;
+            height: 40px;
+            left: -10px;
+        }
+    }
+    .swiper-button-prev{
+        margin-left: 0;
+    }
+    .swiper-button-next{
+        margin-right: 0;
     }
 }
 
@@ -775,10 +802,11 @@
         margin-bottom: 30px;
     }
     .page-seven__img img{
-        max-width: 100%;
+        max-width: 85%;
+        float: right;
     }
     .page-seven{
-        padding-bottom: 30px;
+        padding-bottom: 75px;
     }
     .page-eight__btn {
         position: static;
@@ -993,13 +1021,37 @@
         margin-right: 0;
         margin-bottom: 15px;
     }
-
     .page-twelve__inner-number-box{
         margin-top: 15px;
         margin-left: -30px;
         &::after{
             right: -20px;
         }
+    }
+    .page-nine__main-wrapper{
+        margin-bottom: 20px;
+    }
+    .page-nine__list{
+        //height: 1280px;
+        height: 100%;
+        overflow-y: visible;
+        margin-bottom:20px;
+
+    }
+    .page-nine__img img{
+       // width: 150px;
+       display: none;
+    }
+    .page-nine__video-title{
+        font-size: 25px;
+        line-height: 29px;
+        margin-bottom: 20px;
+    }
+    .page-nine__video{
+        width: 100%;
+    }
+    .page-nine__video iframe {
+        width: 100%;
     }
 }
 
@@ -1009,7 +1061,7 @@
         top: 278px;
         font-size: 53px;
         line-height: 70px;
-        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-width: 1px;
     }
     .page-three__box__picture {
         max-width: 170px;
@@ -1034,8 +1086,17 @@
         font-size: 14px;
         line-height: 16px;
     } 
+    /*.page-seven__img{
+        width: 150px;
+    }*/
     .page-ten__list li{
         margin-bottom: 10px;
+    }
+    .title__main.page-ten__title{
+        display: none;
+    }
+    .title__main.page-ten__title--phone{
+        display: block;
     }
 }
 
@@ -1058,6 +1119,9 @@
     .page-three__box__circle__percent {
         font-size: 42px;
         line-height: 46px;
+    }
+    .page-three__sub-title{
+        padding-right: 10%;
     }
     .title__sub {
         margin-left: 20%;
@@ -1165,13 +1229,23 @@
     }
     .page-seven__btn{
         max-width: 100%;
+        margin-right: 0;
+        margin-top: -35px;
+    }
+    .page-nine{
+        height: 1930px !important;
+    }
+    .page-nine__video{
+        margin-left: 0;
     }
     .page-nine__btn-text {
         font-size: 20px;
         line-height: 24px;
     }
     .title__sub.page-ten__sub-title {
-        margin-left: 35%;
+        //margin-left: 0;
+        text-align: center;
+        margin: 0 auto;
     }
     .page-ten__video-slider {
         width: 300px;
@@ -1189,8 +1263,52 @@
     .page-thirteen__btn {
         bottom: -60px;
     }
+    .page-twelve{
+        height: 880px;
+    }
     .page-twelve__inner{
         margin-bottom: 20px;
+    }
+    .litebox__form__item{
+        width: 270px;
+    }
+    .litebox__title-box {
+        padding-top: 20px;
+    }
+    .litebox__close-btn {
+        right: 12px;
+        top: 12px;
+    }
+    .litebox__form{
+        padding: 30px 45px;
+        margin: 0 auto;
+    }
+    .check-wrapper{
+        flex-wrap: wrap;
+    }
+    .litebox__btn{
+        right: 50%;
+        transform: translate(50%, 0);
+    }
+    .litebox__radio-dot {
+        width: 22px;
+        height: 22px;
+        margin-top: -3px;
+    }
+    .litebox__title-radio{
+        margin-bottom: 5px;
+    }
+    .check-wrapper{
+        margin-bottom: 5px;
+    }
+    .litebox__radio-item{
+        margin: 5px 0;
+    }
+    .litebox__form textarea{
+        margin-bottom: 10px;
+    }
+    .litebox__title-radio {
+        line-height: 22px;
     }
 }
 
@@ -1252,7 +1370,7 @@
         justify-content: center;
     }
     .page-seven__box {
-        width: 325px;
+        width: 380px;
     }
     .page-eight__main-box{
         padding-left: 15px;
@@ -1401,6 +1519,7 @@
     .footer__social-link {
         margin: 15px 18px;
     }
+    
 }
 
 @media (max-width: 330px) {
@@ -1409,6 +1528,20 @@
     }
     .page-ten__video-slider {
         width: 275px;
+    }
+    .litebox__form__item{
+        width: 230px;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+    .litebox__form textarea{
+        min-height: 80px;
+    }
+    .litebox__title-radio{
+        line-height: 18px;
+    }
+    .litebox__form {
+        padding: 30px 37px;
     }
 }
 
